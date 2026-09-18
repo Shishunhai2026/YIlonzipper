@@ -4,13 +4,23 @@ import { PageHero, Section, SectionHeading, ButtonLink, type Crumb } from '@/com
 import { JsonLd } from '@/components/seo/JsonLd';
 import { breadcrumbSchema } from '@/lib/schema';
 import { productPath, products, type Product } from '@/data/products';
+import { openGraphFor } from '@/lib/seo';
+
+const TITLE = 'Zipper Material Comparison: TPU, PEVA, Nylon';
+const DESCRIPTION =
+  'TPU, PEVA, silicone rubber and nylon woven airtight zipper materials compared using only published specification values — including what is not published.';
 
 export const metadata: Metadata = {
-  title: 'Zipper Material Comparison: TPU, PEVA, Nylon',
-  description:
-    'TPU, PEVA, silicone rubber and nylon woven airtight zipper materials compared using only published specification values — including what is not published.',
+  title: TITLE,
+  description: DESCRIPTION,
   keywords: 'TPU vs PEVA zipper, silicone rubber drysuit zipper, nylon woven waterproof zipper',
   alternates: { canonical: '/technology/materials' },
+  openGraph: openGraphFor({
+    title: TITLE,
+    description: DESCRIPTION,
+    path: '/technology/materials',
+    type: 'article',
+  }),
 };
 
 const TRAIL: Crumb[] = [

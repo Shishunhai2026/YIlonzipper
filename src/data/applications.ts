@@ -109,7 +109,11 @@ export const applications: Application[] = [
       'HF welding or sewing into the door curtain',
     ],
     productIds: ['7'],
-    seoKeyword: 'high speed door zipper',
+    // Distinct from /products/high-speed-roller-door-zippers, which owns the
+    // commercial product query "high speed door zipper". This page targets the
+    // application intent — how the closure behaves on a fast door — so the two
+    // stop competing for one term.
+    seoKeyword: 'high speed door sealing',
   },
   {
     slug: 'cold-chain',
@@ -155,6 +159,38 @@ export const applications: Application[] = [
     ],
     productIds: ['9'],
     seoKeyword: 'drysuit zipper',
+  },
+  {
+    slug: 'inflatable-boats',
+    name: 'Inflatable Boats & SUPs',
+    headline: 'Airtight zippers for inflatable boats, SUPs and inflatable structures',
+    intro:
+      'An inflatable closure is a pressure seal first: it is folded, packed and inflated repeatedly, and it has to hold air as well as keep water out. That places it in the airtight range rather than the watertight one, and it is the use the manufacturer publishes the self-healing build against.',
+    requirements: [
+      'Air retention — airtight builds are published with a 60 kPa sealing pressure test (#10 resin and circular)',
+      'Derail recovery — the self-healing build resets automatically, which matters on an inflatable pressurised under load',
+      'Repeated folding and packing — the published durability figure is 3,000+ cycles',
+      'Closed-loop openings — the circular airtight zipper seals through 360 degrees where the port is not a straight line',
+      'HF welding assembly, which suits the TPU and PVC panels used on inflatables',
+    ],
+    productIds: ['3', '1', '8'],
+    seoKeyword: 'waterproof zipper for inflatable boats',
+  },
+  {
+    slug: 'rescue-equipment',
+    name: 'Rescue Equipment',
+    headline: 'Airtight and waterproof zippers for rescue equipment',
+    intro:
+      'The manufacturer publishes rescue use against two products: the self-healing airtight zipper, which recovers automatically if the chain derails, and the drysuit envelope zipper, published for underwater rescue gear and rated IPX8 for deep-sea pressure and salt water.',
+    requirements: [
+      'No single point of failure — the self-healing build resets automatically after derailing',
+      'Continuous immersion — IPX8 on the self-healing and drysuit envelope builds',
+      'Salt water and deep-sea pressure — the silicone rubber drysuit envelope is published for both',
+      'Repeated deployment — the published durability figure is 3,000+ cycles',
+      'Sealing pressure confirmed against your own project test conditions',
+    ],
+    productIds: ['3', '9'],
+    seoKeyword: 'zipper for rescue equipment',
   },
 ];
 

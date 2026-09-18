@@ -37,13 +37,13 @@ export function Footer() {
               {company.contact.phones.map((phone) => (
                 <p key={phone.href}>
                   <a href={`tel:${phone.href}`} className="hover:text-white hover:underline">
-                    {phone.display}
+                    Tel: {phone.display}
                   </a>
                 </p>
               ))}
               <p>
                 <a href={`mailto:${company.contact.email}`} className="hover:text-white hover:underline">
-                  {company.contact.email}
+                  Email: {company.contact.email}
                 </a>
               </p>
             </address>

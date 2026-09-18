@@ -9,6 +9,7 @@
     "lint": "eslint",
     "build:images": "node scripts/build-images.mjs",
     "build:banners": "node scripts/build-banners.mjs",
+    "build:social": "node scripts/build-social.mjs",
     "verify:content": "node scripts/verify-content.mjs",
     "audit": "node scripts/audit.mjs",
     "test:rfq": "node scripts/test-rfq.mjs"

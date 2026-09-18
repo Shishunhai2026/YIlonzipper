@@ -47,7 +47,9 @@ export type ApplicationSlug =
   | 'industrial-fast-doors'
   | 'cold-chain'
   | 'cleanrooms'
-  | 'drysuits-underwater';
+  | 'drysuits-underwater'
+  | 'inflatable-boats'
+  | 'rescue-equipment';
 
 export type Product = {
   id: string;
@@ -650,7 +652,10 @@ export const categories: Category[] = [
     description:
       'Zippers engineered around a specific behaviour rather than a size class. The self-healing build recovers automatically after derailing; the PEVA build brings IPX7 sealing to cost-sensitive everyday waterproof products.',
     productIds: ['3', '4'],
-    seoKeyword: 'self healing airtight zipper',
+    // Category-level term, not the child's. The earlier value was the exact
+    // keyword of /products/functional-airtight-zippers/self-healing-airtight-zipper,
+    // so parent and child were competing for one query.
+    seoKeyword: 'functional airtight zipper',
   },
   {
     slug: 'nylon-woven-waterproof-zippers',
@@ -680,7 +685,9 @@ export const categories: Category[] = [
     description:
       'Where a straight zipper will not do: a circular airtight zipper delivering 360 degree sealing, and a silicone rubber drysuit envelope rated IPX8 for deep-sea pressure and salt water.',
     productIds: ['8', '9'],
-    seoKeyword: 'circular airtight zipper',
+    // Category-level term. The earlier value was the exact keyword of the child
+    // page /products/special-structure-sealing/circular-airtight-zipper.
+    seoKeyword: 'closed-loop sealing zipper',
   },
 ];
 

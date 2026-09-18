@@ -27,20 +27,38 @@ export const metadata: Metadata = {
   publisher: company.legalName,
   formatDetection: { telephone: false, address: false, email: false },
   alternates: { canonical: '/' },
+  /**
+   * Defaults only. Every page supplies its own `openGraph` via openGraphFor()
+   * in src/lib/seo.ts, because Next REPLACES this object rather than merging it
+   * — a page that omits it inherits everything below, including the title and
+   * description of the homepage.
+   *
+   * `url` is deliberately absent here for the same reason: scrapers fall back to
+   * the page's own URL when og:url is missing, which is correct, whereas a
+   * homepage value inherited by an inner page is actively wrong.
+   */
   openGraph: {
     type: 'website',
     siteName: company.brand,
     locale: 'en_US',
-    url: siteUrl,
     title: `${company.brand} — Airtight & Waterproof Zipper Manufacturer`,
     description:
       'IPX6–IPX8 airtight and waterproof zippers, 60 kPa sealing strength, 3,000+ cycles. Custom sizes, materials and lengths from 5 cm to 100 m.',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'An airtight zipper shown underwater at sunset, with the IPX8 rating badge',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: `${company.brand} — Airtight & Waterproof Zipper Manufacturer`,
     description:
       'IPX6–IPX8 airtight and waterproof zippers, 60 kPa sealing strength, 3,000+ cycles. Custom sizes, materials and lengths from 5 cm to 100 m.',
+    images: ['/og-image.jpg'],
   },
   robots: {
     index: true,

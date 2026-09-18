@@ -1,15 +1,21 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ButtonLink, PageHero, Section } from '@/components/ui';
+import { ButtonLink, PageHero, Section, SectionHeading } from '@/components/ui';
 import { company } from '@/data/company';
+import { categoryLinks } from '@/data/navigation';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { breadcrumbSchema, contactPageSchema } from '@/lib/schema';
+import { openGraphFor } from '@/lib/seo';
+
+const TITLE = 'Contact YILON — Airtight & Waterproof Zippers';
+const DESCRIPTION =
+  'Contact YILON about airtight and waterproof zipper enquiries. Email shishunhai2026@gmail.com, call +86 18973134733, or send your specification via the form.';
 
 export const metadata: Metadata = {
-  title: 'Contact YILON — Airtight & Waterproof Zippers',
-  description:
-    'Contact YILON about airtight and waterproof zipper enquiries. Email shishunhai2026@gmail.com, call +86 18973134733, or send your specification via the form.',
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: '/contact' },
+  openGraph: openGraphFor({ title: TITLE, description: DESCRIPTION, path: '/contact' }),
 };
 
 const CONTACT_METHODS = [
@@ -149,6 +155,41 @@ export default function ContactPage() {
               </ul>
             </div>
           </aside>
+        </div>
+      </Section>
+
+      {/* The contact page previously linked to no product or application page at
+          all, which made it a dead end for a buyer who arrives here before
+          choosing a series. */}
+      <Section tone="light">
+        <SectionHeading
+          eyebrow="Product range"
+          title="Not sure which series you need?"
+          intro="Nine published series across five categories. Each carries its full parameter table, so you can send a specification rather than a description."
+        />
+
+        <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {categoryLinks.map((category) => (
+            <li key={category.href}>
+              <Link
+                href={category.href}
+                className="flex h-full flex-col rounded-card border border-steel-200 bg-white p-5 transition-colors hover:border-navy-300"
+              >
+                <span className="text-sm font-semibold text-navy-900">{category.label}</span>
+                {category.description ? (
+                  <span className="mt-1.5 text-sm leading-relaxed text-steel-600">
+                    {category.description}
+                  </span>
+                ) : null}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-8">
+          <ButtonLink href="/products" variant="ghost">
+            All nine series
+          </ButtonLink>
         </div>
       </Section>
 

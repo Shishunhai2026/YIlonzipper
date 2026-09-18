@@ -5,11 +5,16 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { breadcrumbSchema } from '@/lib/schema';
 import { company } from '@/data/company';
 import { categories } from '@/data/products';
+import { openGraphFor } from '@/lib/seo';
+
+const TITLE = 'About YILON — Airtight & Waterproof Zippers';
+const DESCRIPTION = `${company.legalName} — a National High-Tech Enterprise founded in ${company.founded} in Jiangsu, exporting airtight zippers to ${company.stats.exportCountries}+ countries.`;
 
 export const metadata: Metadata = {
-  title: 'About YILON — Airtight & Waterproof Zippers',
-  description: `Dongtai YILON Industrial Co., Ltd. — a National High-Tech Enterprise founded in ${company.founded} in Dongtai, Jiangsu, exporting airtight zippers to ${company.stats.exportCountries}+ countries.`,
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: '/about' },
+  openGraph: openGraphFor({ title: TITLE, description: DESCRIPTION, path: '/about' }),
 };
 
 const TRAIL: Crumb[] = [
@@ -132,7 +137,7 @@ export default function AboutPage() {
                       href={`tel:${phone.href}`}
                       className="font-medium text-navy-700 hover:text-accent-600 hover:underline"
                     >
-                      {phone.display}
+                      Tel: {phone.display}
                     </a>
                   </p>
                 ))}
@@ -141,7 +146,7 @@ export default function AboutPage() {
                     href={`mailto:${company.contact.email}`}
                     className="font-medium text-navy-700 hover:text-accent-600 hover:underline"
                   >
-                    {company.contact.email}
+                    Email: {company.contact.email}
                   </a>
                 </p>
               </address>

@@ -22,12 +22,17 @@ import {
   productsInCategory,
 } from '@/data/products';
 import { company, siteUrl } from '@/data/company';
+import { openGraphFor } from '@/lib/seo';
+
+const TITLE = 'Airtight & Waterproof Zipper Series';
+const DESCRIPTION =
+  'Compare nine airtight and waterproof zipper series — resin, nylon woven, PEVA, self-healing, circular and roller door — with published IPX and seal data.';
 
 export const metadata: Metadata = {
-  title: 'Airtight & Waterproof Zipper Series',
-  description:
-    'Compare nine airtight and waterproof zipper series — resin, nylon woven, PEVA, self-healing, circular and roller door — with published IPX and seal data.',
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: '/products' },
+  openGraph: openGraphFor({ title: TITLE, description: DESCRIPTION, path: '/products' }),
 };
 
 const TRAIL: Crumb[] = [

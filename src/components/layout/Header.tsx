@@ -104,42 +104,66 @@ export function Header() {
                 const open = openMenu === item.label;
                 return (
                   <li key={item.href} className="relative">
-                    <button
-                      type="button"
-                      aria-expanded={open}
-                      aria-controls={`${menuId}-${item.label}`}
-                      onClick={() => setOpenMenu(open ? null : item.label)}
-                      className={`flex items-center gap-1 rounded-md px-3 py-2 text-sm font-semibold transition-colors ${
-                        active ? 'text-navy-900' : 'text-steel-600 hover:bg-navy-50 hover:text-navy-800'
+                    {/* The section itself is a real <a href> so it is crawlable and
+                        clickable; the chevron is a separate button that only toggles
+                        the panel. A button-only trigger would leave this whole
+                        section unreachable from the markup. */}
+                    <span className="flex items-center">
+                      <Link
+                        href={item.href}
+                        onClick={closeMenus}
+                        aria-current={active ? 'page' : undefined}
+                        className={`rounded-md py-2 pl-3 pr-1 text-sm font-semibold transition-colors ${
+                          active
+                            ? 'text-navy-900'
+                            : 'text-steel-600 hover:bg-navy-50 hover:text-navy-800'
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                      <button
+                        type="button"
+                        aria-expanded={open}
+                        aria-controls={`${menuId}-${item.label}`}
+                        aria-label={`${item.label} menu`}
+                        onClick={() => setOpenMenu(open ? null : item.label)}
+                        className={`rounded-md py-2 pl-1 pr-2 text-sm font-semibold transition-colors ${
+                          active
+                            ? 'text-navy-900'
+                            : 'text-steel-600 hover:bg-navy-50 hover:text-navy-800'
+                        }`}
+                      >
+                        <svg
+                          aria-hidden="true"
+                          viewBox="0 0 12 12"
+                          className={`h-2.5 w-2.5 transition-transform ${open ? 'rotate-180' : ''}`}
+                        >
+                          <path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.6" />
+                        </svg>
+                      </button>
+                    </span>
+
+                    {/* Rendered whether open or closed, only hidden with CSS. Every
+                        child URL therefore exists as an <a href> in the page source,
+                        so crawlers see the full section rather than an empty toggle. */}
+                    <ul
+                      id={`${menuId}-${item.label}`}
+                      className={`absolute left-0 top-full z-50 mt-1 w-72 rounded-lg border border-steel-200 bg-white p-2 shadow-lg ${
+                        open ? '' : 'hidden'
                       }`}
                     >
-                      {item.label}
-                      <svg
-                        aria-hidden="true"
-                        viewBox="0 0 12 12"
-                        className={`h-2.5 w-2.5 transition-transform ${open ? 'rotate-180' : ''}`}
-                      >
-                        <path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" strokeWidth="1.6" />
-                      </svg>
-                    </button>
-                    {open ? (
-                      <ul
-                        id={`${menuId}-${item.label}`}
-                        className="absolute left-0 top-full z-50 mt-1 w-72 rounded-lg border border-steel-200 bg-white p-2 shadow-lg"
-                      >
-                        {item.children.map((child) => (
-                          <li key={child.href}>
-                            <Link
-                              href={child.href}
-                              onClick={closeMenus}
-                              className="block rounded-md px-3 py-2 text-sm text-steel-700 hover:bg-navy-50 hover:text-navy-900"
-                            >
-                              {child.label}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    ) : null}
+                      {item.children.map((child) => (
+                        <li key={child.href}>
+                          <Link
+                            href={child.href}
+                            onClick={closeMenus}
+                            className="block rounded-md px-3 py-2 text-sm text-steel-700 hover:bg-navy-50 hover:text-navy-900"
+                          >
+                            {child.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
                   </li>
                 );
               })}

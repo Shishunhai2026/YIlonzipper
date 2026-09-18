@@ -1,0 +1,23 @@
+# Files the Vercel CLI must never upload.
+#
+# This is separate from .gitignore on purpose: `vercel deploy` reads
+# .vercelignore, so a rule that exists only in .gitignore would not protect a
+# CLI upload. Keep the two in sync for anything sensitive.
+
+# Customer enquiries — names, companies, emails, phone numbers.
+/var/
+
+# Local archives: a zip of this working tree contains both a full copy of .git
+# and whatever is in var/, and at ~200MB it would stall the upload anyway.
+*.zip
+
+# Build output and dependencies are produced on Vercel, never uploaded.
+/.next/
+/node_modules/
+/out/
+/build/
+
+# Local editor / OS noise
+.DS_Store
+*.tsbuildinfo
+next-env.d.ts

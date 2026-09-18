@@ -5,12 +5,17 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { breadcrumbSchema } from '@/lib/schema';
 import { faqs } from '@/data/faq';
 import { productPath, products } from '@/data/products';
+import { openGraphFor } from '@/lib/seo';
+
+const TITLE = 'Quality & Testing — Airtight Zipper Tests';
+const DESCRIPTION =
+  'The tests published for YILON airtight waterproof zippers — IPX6/7/8 to IEC 60529, sealing pressure, cycle life and temperature — and sample validation.';
 
 export const metadata: Metadata = {
-  title: 'Quality & Testing — Airtight Zipper Tests',
-  description:
-    'The tests published for YILON airtight waterproof zippers — IPX6/7/8 to IEC 60529, sealing pressure, cycle life and temperature — and sample validation.',
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: '/quality' },
+  openGraph: openGraphFor({ title: TITLE, description: DESCRIPTION, path: '/quality' }),
 };
 
 const TRAIL: Crumb[] = [

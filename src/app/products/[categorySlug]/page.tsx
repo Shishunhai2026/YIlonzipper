@@ -16,7 +16,7 @@ import { breadcrumbSchema } from '@/lib/schema';
 import { getCategory, productPath, productsInCategory, categories } from '@/data/products';
 import { applications } from '@/data/applications';
 import { company, siteUrl } from '@/data/company';
-import { clampDescription } from '@/lib/seo';
+import { clampDescription, openGraphFor } from '@/lib/seo';
 
 type PageProps = { params: Promise<{ categorySlug: string }> };
 
@@ -29,12 +29,17 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const category = getCategory(categorySlug);
   if (!category) return {};
 
+  const title = category.name;
+  const description = clampDescription(
+    `${category.tagline}. Published ${category.seoKeyword} specifications and IPX ratings, with full customisation from the manufacturer.`,
+  );
+  const path = `/products/${category.slug}`;
+
   return {
-    title: category.name,
-    description: clampDescription(
-      `${category.tagline}. Published ${category.seoKeyword} specifications and IPX ratings, with full customisation from the manufacturer.`,
-    ),
-    alternates: { canonical: `/products/${category.slug}` },
+    title,
+    description,
+    alternates: { canonical: path },
+    openGraph: openGraphFor({ title, description, path }),
   };
 }
 

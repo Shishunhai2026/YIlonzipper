@@ -5,12 +5,22 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { breadcrumbSchema } from '@/lib/schema';
 import { guides, guideAsPost } from '@/data/guides';
 import { siteUrl } from '@/data/company';
+import { openGraphFor } from '@/lib/seo';
+
+const TITLE = 'Blog — Airtight & Waterproof Zipper Articles';
+const DESCRIPTION =
+  'In-depth articles on airtight and waterproof zippers: selection, IPX ratings, materials, manufacturing, drysuit closures, inflatable sealing and procurement.';
 
 export const metadata: Metadata = {
-  title: 'Blog — Airtight & Waterproof Zipper Articles',
-  description:
-    'In-depth articles on airtight and waterproof zippers: selection, IPX ratings, materials, manufacturing, drysuit closures, inflatable sealing and procurement.',
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: '/blog' },
+  openGraph: openGraphFor({
+    title: TITLE,
+    description: DESCRIPTION,
+    path: '/blog',
+    type: 'article',
+  }),
 };
 
 const TRAIL: Crumb[] = [

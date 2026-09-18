@@ -8,7 +8,7 @@ import { breadcrumbSchema } from '@/lib/schema';
 import { applications, getApplication } from '@/data/applications';
 import { getProductById, productPath } from '@/data/products';
 import { company, siteUrl } from '@/data/company';
-import { applicationTitle, clampDescription } from '@/lib/seo';
+import { OG_IMAGE, applicationTitle, clampDescription } from '@/lib/seo';
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -34,6 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: `${siteUrl}/applications/${application.slug}`,
       title: `${application.headline} | YILON`,
       description,
+      images: [OG_IMAGE],
     },
   };
 }

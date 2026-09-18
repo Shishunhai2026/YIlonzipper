@@ -10,15 +10,19 @@ import { applications } from '@/data/applications';
 import { faqs } from '@/data/faq';
 import { company, siteUrl } from '@/data/company';
 import { JsonLd } from '@/components/seo/JsonLd';
-import { faqSchema } from '@/lib/schema';
+import { openGraphFor } from '@/lib/seo';
+
+// The root layout's `title.template` applies to descendant segments only, so
+// this title is rendered as-is (no " | YILON" suffix) — keep it inside 60.
+const TITLE = 'Airtight & Waterproof Zipper Manufacturer';
+const DESCRIPTION =
+  'YILON manufactures airtight and waterproof zippers to IPX6–IPX8 with 60 kPa sealing and 3,000+ cycle durability. OEM/ODM sizes from 5 cm to 100 m.';
 
 export const metadata: Metadata = {
-  // The root layout's `title.template` applies to descendant segments only, so
-  // this title is rendered as-is (no " | YILON" suffix) — keep it inside 60.
-  title: 'Airtight & Waterproof Zipper Manufacturer',
-  description:
-    'YILON manufactures airtight and waterproof zippers to IPX6–IPX8 with 60 kPa sealing and 3,000+ cycle durability. OEM/ODM sizes from 5 cm to 100 m.',
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: '/' },
+  openGraph: openGraphFor({ title: TITLE, description: DESCRIPTION, path: '/' }),
 };
 
 const HOME_FAQS = faqs.filter((f) =>
@@ -83,13 +87,15 @@ export default function HomePage() {
       {/* ---------------------------------------------------------------- Hero */}
       <section className="relative overflow-hidden bg-navy-900">
         <div className="absolute inset-0">
+          {/* Decorative only: aria-hidden, object-cover, painted at 25% opacity
+              under a navy gradient. It is not the LCP element, so it must not
+              claim a High-priority preload slot ahead of the carousel. */}
           {hero ? (
             <Image
               src={hero.src}
               alt=""
               aria-hidden="true"
               fill
-              priority
               sizes="100vw"
               className="object-cover opacity-25"
             />
@@ -181,9 +187,12 @@ export default function HomePage() {
           </ButtonLink>
         </div>
 
+        {/* No `priority` on these cards: the grid sits well below the fold, so
+            preloading them only contends with the hero carousel for the same
+            connection budget. */}
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {products.slice(0, 6).map((product, i) => (
-            <ProductCard key={product.id} product={product} priority={i < 3} />
+          {products.slice(0, 6).map((product) => (
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
       </Section>
@@ -371,7 +380,10 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <JsonLd id="home-faq" data={faqSchema(HOME_FAQS)} />
+      {/* No FAQPage here. The same answers are abbreviated on this page and
+          published in full on /faq, and that page is the one that should hold
+          the FAQ markup — emitting the set from both made Google choose between
+          two candidate URLs for the same questions. The visible Q&A stays. */}
       <JsonLd
         id="home-itemlist"
         data={{

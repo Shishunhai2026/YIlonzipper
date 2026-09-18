@@ -5,12 +5,17 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { breadcrumbSchema } from '@/lib/schema';
 import { guides } from '@/data/guides';
 import { siteUrl } from '@/data/company';
+import { openGraphFor } from '@/lib/seo';
+
+const TITLE = 'Technical Guides & Waterproof Zipper Technology';
+const DESCRIPTION =
+  'Selection, IPX ratings, materials, manufacturing and procurement guides for airtight and waterproof zippers — the manufacturer’s technical reference.';
 
 export const metadata: Metadata = {
-  title: 'Technical Guides & Waterproof Zipper Technology',
-  description:
-    'Selection, IPX ratings, materials, manufacturing and procurement guides for airtight and waterproof zippers — the manufacturer’s technical reference.',
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: '/technology' },
+  openGraph: openGraphFor({ title: TITLE, description: DESCRIPTION, path: '/technology' }),
 };
 
 const TRAIL: Crumb[] = [

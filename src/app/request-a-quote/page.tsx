@@ -6,13 +6,18 @@ import { getProduct } from '@/data/products';
 import { getApplication } from '@/data/applications';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { breadcrumbSchema } from '@/lib/schema';
+import { openGraphFor } from '@/lib/seo';
+
+const TITLE = 'Request a Quote — Custom Airtight Zippers';
+const DESCRIPTION =
+  'Request a quotation for custom airtight or waterproof zippers. Send your opening length, tape width, target IPX rating and quantity for an engineering reply.';
 
 export const metadata: Metadata = {
-  title: 'Request a Quote — Custom Airtight Zippers',
-  description:
-    'Request a quotation for custom airtight or waterproof zippers. Send your opening length, tape width, target IPX rating and quantity for an engineering reply.',
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: '/request-a-quote' },
   robots: { index: true, follow: true },
+  openGraph: openGraphFor({ title: TITLE, description: DESCRIPTION, path: '/request-a-quote' }),
 };
 
 const WHAT_HELPS = [

@@ -7,12 +7,17 @@ import { breadcrumbSchema } from '@/lib/schema';
 import { applications } from '@/data/applications';
 import { getProductById, imagesFor } from '@/data/products';
 import { siteUrl } from '@/data/company';
+import { openGraphFor } from '@/lib/seo';
+
+const TITLE = 'Airtight Zipper Applications';
+const DESCRIPTION =
+  'Nine applications YILON publishes for its airtight and waterproof zippers — military gear, drysuits, protective suits, sealed bags, cold chain and cleanrooms.';
 
 export const metadata: Metadata = {
-  title: 'Airtight Zipper Applications',
-  description:
-    'Nine applications YILON publishes for its airtight and waterproof zippers — military gear, drysuits, protective suits, sealed bags, cold chain and cleanrooms.',
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: '/applications' },
+  openGraph: openGraphFor({ title: TITLE, description: DESCRIPTION, path: '/applications' }),
 };
 
 const TRAIL: Crumb[] = [

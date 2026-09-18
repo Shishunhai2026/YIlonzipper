@@ -10,7 +10,7 @@ import { guides, getGuide } from '@/data/guides';
 import { getProductById } from '@/data/products';
 import { getApplication } from '@/data/applications';
 import { siteUrl } from '@/data/company';
-import { clampDescription, guideTitle } from '@/lib/seo';
+import { OG_IMAGE, clampDescription, guideTitle } from '@/lib/seo';
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -41,6 +41,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description,
       publishedTime: guide.updated,
       modifiedTime: guide.updated,
+      images: [OG_IMAGE],
     },
   };
 }

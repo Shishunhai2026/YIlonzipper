@@ -19,6 +19,16 @@ export const organizationSchema = () => ({
   name: company.legalName,
   alternateName: company.brand,
   url: siteUrl,
+  // Google renders this in brand search results and knowledge panels, and the
+  // publisher of every Article node is expected to carry one. Without it the
+  // eight guide pages were failing Article eligibility on two counts, not one.
+  logo: {
+    '@type': 'ImageObject',
+    url: abs('/logo.png'),
+    width: 512,
+    height: 512,
+    caption: company.brand,
+  },
   slogan: 'Airtight and waterproof zipper manufacturer',
   foundingDate: String(company.founded),
   email: company.contact.email,
@@ -113,6 +123,12 @@ export const faqSchema = (items: FaqItem[]) => ({
  * route for guide content, so that page passes its own path. Emitting the same
  * `@id` from both URLs describes them as one article entity rather than two
  * competing ones.
+ *
+ * `image` is required for Google's Article rich result. These guides publish no
+ * artwork of their own, so they carry the site's share card — a real image that
+ * exists on the site and depicts the subject, rather than a fabricated asset.
+ * A per-guide illustration would be better and is a content task, not a schema
+ * one.
  */
 export const articleSchema = (guide: Guide, path = `/blog/${guide.slug}`) => ({
   '@context': 'https://schema.org',
@@ -120,6 +136,12 @@ export const articleSchema = (guide: Guide, path = `/blog/${guide.slug}`) => ({
   '@id': `${siteUrl}${path}#article`,
   headline: guide.title,
   description: guide.summary,
+  image: {
+    '@type': 'ImageObject',
+    url: abs('/og-image.jpg'),
+    width: 1200,
+    height: 630,
+  },
   datePublished: guide.updated,
   dateModified: guide.updated,
   inLanguage: 'en',

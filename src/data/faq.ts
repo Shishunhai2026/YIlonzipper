@@ -160,7 +160,7 @@ export const faqs: FaqItem[] = [
     id: 'about-yilon',
     question: 'What kind of company is YILON, and what certifications does it hold?',
     answer:
-      'Dongtai YILON Industrial Co., Ltd. was founded in 2014 in Dongtai City, Jiangsu Province. It is a National High-Tech Enterprise focused on the R&D, production and sales of airtight waterproof zippers, with its own R&D team and multiple technical patents. It serves more than 300 enterprise clients worldwide and exports to more than 30 countries and regions. Certification documents are available on request.',
+      'Dongtai SZIP Science&Technology CO.,Limited was founded in 2014 in Dongtai City, Jiangsu Province. It is a National High-Tech Enterprise focused on the R&D, production and sales of airtight waterproof zippers, with its own R&D team and multiple technical patents. It serves more than 300 enterprise clients worldwide and exports to more than 30 countries and regions. Certification documents are available on request.',
     group: 'Company',
   },
   {

@@ -48,3 +48,6 @@ next-env.d.ts
 # of .git and whatever sits in var/, so committing one would leak enquiry data
 # into history — and at ~200MB it would block the deploy anyway.
 *.zip
+
+.vercel
+.env*

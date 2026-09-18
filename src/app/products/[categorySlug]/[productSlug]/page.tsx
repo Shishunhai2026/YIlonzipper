@@ -15,12 +15,13 @@ import {
 import { ProductCard } from '@/components/home/ProductCard';
 import { ProductGallery, type GalleryImage } from '@/components/products/ProductGallery';
 import { JsonLd } from '@/components/seo/JsonLd';
-import { breadcrumbSchema, faqSchema, productSchema } from '@/lib/schema';
+import { breadcrumbSchema, productSchema } from '@/lib/schema';
 import { getCategory, getProduct, imagesFor, productPath, products, productsInCategory } from '@/data/products';
 import { applications } from '@/data/applications';
 import { faqs, type FaqItem } from '@/data/faq';
+import { getGuide, type Guide } from '@/data/guides';
 import { company } from '@/data/company';
-import { clampDescription } from '@/lib/seo';
+import { clampDescription, openGraphFor } from '@/lib/seo';
 
 type PageProps = { params: Promise<{ categorySlug: string; productSlug: string }> };
 
@@ -38,13 +39,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!product || !category || product.categorySlug !== category.slug) return {};
 
   const rating = product.specs.waterproofRating;
+  const title = rating ? `${product.name} — ${rating}` : product.name;
+  // `product.summary` is published copy and is never edited to fit a meta
+  // tag; the clamp only bounds what the SERP shows.
+  const description = clampDescription(
+    `${product.summary} Custom sizes and lengths from the manufacturer.`,
+  );
+  const path = productPath(product);
 
   return {
-    title: rating ? `${product.name} — ${rating}` : product.name,
-    // `product.summary` is published copy and is never edited to fit a meta
-    // tag; the clamp only bounds what the SERP shows.
-    description: clampDescription(`${product.summary} Custom sizes and lengths from the manufacturer.`),
-    alternates: { canonical: productPath(product) },
+    title,
+    description,
+    alternates: { canonical: path },
+    openGraph: openGraphFor({ title, description, path }),
   };
 }
 
@@ -92,6 +99,78 @@ function faqsForProduct(productId: string): FaqItem[] {
     .slice(0, 4);
 }
 
+/**
+ * Technical guides surfaced on each product page.
+ *
+ * Deliberately held here rather than in products.ts: scripts/verify-content.mjs
+ * counts 4-space-indented `slug: '...'` lines in that file to assert there are
+ * exactly 5 categories, so adding slug-shaped data there would break the check.
+ *
+ * Keyed by product slug. Anything absent falls back to the three guides that
+ * apply to every sealed assembly — how to select, what the ratings mean, and
+ * what a quotation needs.
+ */
+const DEFAULT_GUIDES = [
+  'zipper-selection-guide',
+  'ipx-waterproof-rating-guide',
+  'custom-zipper-procurement-checklist',
+];
+
+const GUIDES_BY_PRODUCT: Record<string, string[]> = {
+  '10-resin-airtight-zipper': [
+    'zipper-selection-guide',
+    'ipx-waterproof-rating-guide',
+    'custom-zipper-procurement-checklist',
+  ],
+  '5-resin-airtight-zipper': [
+    'zipper-selection-guide',
+    'ipx-waterproof-rating-guide',
+    'custom-zipper-procurement-checklist',
+  ],
+  'self-healing-airtight-zipper': [
+    'inflatable-gear-sealing',
+    'zipper-selection-guide',
+    'ipx-waterproof-rating-guide',
+  ],
+  'peva-airtight-zipper': [
+    'zipper-selection-guide',
+    'airtight-vs-watertight-vs-waterproof',
+    'custom-zipper-procurement-checklist',
+  ],
+  '5-nylon-woven-waterproof-zipper': [
+    'zipper-selection-guide',
+    'airtight-vs-watertight-vs-waterproof',
+    'ipx-waterproof-rating-guide',
+  ],
+  '8-nylon-woven-waterproof-zipper': [
+    'zipper-selection-guide',
+    'airtight-vs-watertight-vs-waterproof',
+    'ipx-waterproof-rating-guide',
+  ],
+  'high-speed-roller-door-zipper': [
+    'tpu-zipper-manufacturing',
+    'zipper-selection-guide',
+    'custom-zipper-procurement-checklist',
+  ],
+  'circular-airtight-zipper': [
+    'airtight-vs-watertight-vs-waterproof',
+    'zipper-selection-guide',
+    'custom-zipper-procurement-checklist',
+  ],
+  'drysuit-envelope-zipper': [
+    'drysuit-zipper-materials',
+    'ipx-waterproof-rating-guide',
+    'zipper-selection-guide',
+  ],
+};
+
+/** Resolves slugs to guides, dropping any that no longer exist. */
+function guidesForProduct(slug: string): Guide[] {
+  return (GUIDES_BY_PRODUCT[slug] ?? DEFAULT_GUIDES)
+    .map((guideSlug) => getGuide(guideSlug))
+    .filter((guide): guide is Guide => guide !== undefined);
+}
+
 export default async function ProductPage({ params }: PageProps) {
   const { categorySlug, productSlug } = await params;
   const product = getProduct(productSlug);
@@ -101,6 +180,7 @@ export default async function ProductPage({ params }: PageProps) {
   const images = galleryImages(product.id, product.name);
   const variantImages = imagesFor(product.id, 'variant');
   const faqItems = faqsForProduct(product.id);
+  const productGuides = guidesForProduct(product.slug);
 
   const trail: Crumb[] = [
     { name: 'Home', href: '/' },
@@ -367,6 +447,33 @@ export default async function ProductPage({ params }: PageProps) {
         </ul>
       </Section>
 
+      {/* -------------------------------------------------- Technical guides */}
+      {productGuides.length > 0 ? (
+        <Section tone="light">
+          <SectionHeading
+            eyebrow="Technical guides"
+            title="How this series is specified"
+            intro="The engineering references buyers use to pin down a specification — ratings, materials and the data a quotation needs to be accurate."
+          />
+
+          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {productGuides.map((guide) => (
+              <li key={guide.slug}>
+                <Link
+                  href={`/technology/${guide.slug}`}
+                  className="flex h-full flex-col rounded-card border border-steel-200 bg-white p-6 shadow-[var(--shadow-card)] transition-all hover:-translate-y-0.5 hover:border-navy-300 hover:shadow-lg"
+                >
+                  <span className="text-base font-bold text-navy-900">{guide.title}</span>
+                  <span className="mt-2 line-clamp-3 text-sm leading-relaxed text-steel-600">
+                    {guide.summary}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </Section>
+      ) : null}
+
       {/* -------------------------------------------------- Related products */}
       <Section tone="white">
         <SectionHeading eyebrow="Also consider" title="Related series" />
@@ -454,9 +561,10 @@ export default async function ProductPage({ params }: PageProps) {
         )}
       />
       <JsonLd id={`product-${product.id}-breadcrumbs`} data={breadcrumbSchema(trail)} />
-      {faqItems.length > 0 ? (
-        <JsonLd id={`product-${product.id}-faq`} data={faqSchema(faqItems)} />
-      ) : null}
+      {/* No FAQPage here: most of these answers come from the shared published
+          pool that /faq already marks up in full, so emitting them again on
+          every product page put the same Q&A on ten URLs. The visible FAQ
+          section below stays — only the duplicate markup is gone. */}
     </>
   );
 }

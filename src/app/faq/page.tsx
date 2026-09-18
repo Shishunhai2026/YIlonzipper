@@ -6,12 +6,17 @@ import { breadcrumbSchema, faqSchema } from '@/lib/schema';
 import { FAQ_GROUPS, faqs, faqsByGroup, type FaqItem } from '@/data/faq';
 import { getProductById, productPath } from '@/data/products';
 import { company } from '@/data/company';
+import { openGraphFor } from '@/lib/seo';
+
+const TITLE = `Airtight Waterproof Zipper FAQ — ${faqs.length} Questions`;
+const DESCRIPTION =
+  'All 24 published questions on airtight and waterproof zippers — selection, IPX ratings, materials, installation, testing, customisation, lead times and MOQ.';
 
 export const metadata: Metadata = {
-  title: `Airtight Waterproof Zipper FAQ — ${faqs.length} Questions`,
-  description:
-    'All 24 published questions on airtight and waterproof zippers — selection, IPX ratings, materials, installation, testing, customisation, lead times and MOQ.',
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: '/faq' },
+  openGraph: openGraphFor({ title: TITLE, description: DESCRIPTION, path: '/faq' }),
 };
 
 const TRAIL: Crumb[] = [

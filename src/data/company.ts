@@ -8,7 +8,7 @@
  */
 
 export const company = {
-  legalName: 'Dongtai YILON Industrial Co., Ltd.',
+  legalName: 'Dongtai SZIP Science&Technology CO.,Limited',
   brand: 'YILON',
   founded: 2014,
   industry: 'Airtight & waterproof zipper manufacturing',

@@ -5,13 +5,23 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { breadcrumbSchema } from '@/lib/schema';
 import { productPath, products, type Product } from '@/data/products';
 import { getGuide, type Block } from '@/data/guides';
+import { openGraphFor } from '@/lib/seo';
+
+const TITLE = 'IPX Waterproof Ratings Explained: IPX6, IPX7, IPX8';
+const DESCRIPTION =
+  'What IPX6, IPX7 and IPX8 test conditions mean under IEC 60529, which YILON airtight zipper series carry each rating, and what IPX alone does not tell you.';
 
 export const metadata: Metadata = {
-  title: 'IPX Waterproof Ratings Explained: IPX6, IPX7, IPX8',
-  description:
-    'What IPX6, IPX7 and IPX8 test conditions mean under IEC 60529, which YILON airtight zipper series carry each rating, and what IPX alone does not tell you.',
+  title: TITLE,
+  description: DESCRIPTION,
   keywords: 'IPX7 IPX8 waterproof rating, IPX6 test conditions, waterproof zipper rating',
   alternates: { canonical: '/technology/ipx-ratings' },
+  openGraph: openGraphFor({
+    title: TITLE,
+    description: DESCRIPTION,
+    path: '/technology/ipx-ratings',
+    type: 'article',
+  }),
 };
 
 const TRAIL: Crumb[] = [

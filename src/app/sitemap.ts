@@ -15,9 +15,11 @@ import { guides } from '@/data/guides';
  * and inventing one per page would be noise rather than signal.
  *
  * `/blog/[slug]` mirrors the same articles as `/technology/[slug]` and declares
- * the technology URL as its canonical, so the two are listed together: the
- * canonical target is what gets indexed, and the blog alias stays discoverable
- * for the readers who navigate from the blog index.
+ * the technology URL as its canonical. Those alias URLs are deliberately NOT
+ * listed here: a sitemap may only contain canonical URLs, and submitting eight
+ * URLs that each canonicalise somewhere else guarantees Search Console reports
+ * "Duplicate, Google chose a different canonical" for them. The `/blog` index
+ * itself is self-canonical and stays listed.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const buildDate = new Date();
@@ -114,19 +116,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  const blogPages: MetadataRoute.Sitemap = guides.map((guide) => ({
-    url: `${siteUrl}/blog/${guide.slug}`,
-    lastModified: new Date(guide.updated),
-    changeFrequency: 'yearly',
-    priority: 0.5,
-  }));
-
   return [
     ...staticPages,
     ...categoryPages,
     ...productPages,
     ...applicationPages,
     ...guidePages,
-    ...blogPages,
   ];
 }

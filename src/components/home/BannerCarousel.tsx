@@ -132,13 +132,16 @@ export function BannerCarousel({ images }: { images: BannerImage[] }) {
               src={image.src}
               alt={image.alt}
               fill
-              // Only the first slide is priority, so the head carries a single
-              // preload. The rest are eager rather than the default lazy: a
-              // lazy slide sits translated outside this overflow-hidden box, so
-              // the browser never treats it as entering the viewport and the
-              // first advance to it paints an empty frame. Five banners total
-              // ~550KB, which is affordable for an above-the-fold carousel.
+              // Only slide 1 is priority, so only slide 1 preloads at High.
+              //
+              // Slides 2–5 cannot be lazy: they sit translated outside this
+              // overflow-hidden box, so the browser never treats them as entering
+              // the viewport and the first advance paints an empty frame. They stay
+              // eager but are explicitly marked low priority — otherwise they
+              // preload at High alongside slide 1 and all five compete for the
+              // same connection budget, which delays the real LCP image.
               priority={i === 0}
+              fetchPriority={i === 0 ? undefined : 'low'}
               loading={i === 0 ? undefined : 'eager'}
               sizes="(max-width: 640px) calc(100vw - 2rem), (max-width: 1280px) calc(100vw - 3rem), 1216px"
               className="object-cover"

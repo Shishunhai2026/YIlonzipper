@@ -5,12 +5,18 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { breadcrumbSchema } from '@/lib/schema';
 import { company } from '@/data/company';
 import { getGuide, type Block } from '@/data/guides';
+import { categoryLinks } from '@/data/navigation';
+import { openGraphFor } from '@/lib/seo';
+
+const TITLE = 'Manufacturing — Airtight Zipper Production';
+const DESCRIPTION =
+  'How YILON assembles airtight zippers — HF welding, sewing with seam tape and bonding — from enquiry and sampling through to mass production.';
 
 export const metadata: Metadata = {
-  title: 'Manufacturing — Airtight Zipper Production',
-  description:
-    'How YILON assembles airtight zippers — HF welding, sewing with seam tape and bonding — from enquiry and sampling through to mass production.',
+  title: TITLE,
+  description: DESCRIPTION,
   alternates: { canonical: '/factory' },
+  openGraph: openGraphFor({ title: TITLE, description: DESCRIPTION, path: '/factory' }),
 };
 
 const TRAIL: Crumb[] = [
@@ -366,6 +372,41 @@ export default function FactoryPage() {
               </div>
             </div>
           </div>
+        </div>
+      </Section>
+
+      {/* The manufacturing page previously linked to no product at all. A buyer
+          reading how the zippers are assembled should be able to reach what is
+          assembled, without going back through the main menu. */}
+      <Section tone="white">
+        <SectionHeading
+          eyebrow="What we make"
+          title="The range these processes produce"
+          intro="Five published categories, nine series. Every process described above is applied to the products below."
+        />
+
+        <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {categoryLinks.map((category) => (
+            <li key={category.href}>
+              <Link
+                href={category.href}
+                className="flex h-full flex-col rounded-card border border-steel-200 bg-white p-5 transition-colors hover:border-navy-300"
+              >
+                <span className="text-sm font-semibold text-navy-900">{category.label}</span>
+                {category.description ? (
+                  <span className="mt-1.5 text-sm leading-relaxed text-steel-600">
+                    {category.description}
+                  </span>
+                ) : null}
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        <div className="mt-8">
+          <ButtonLink href="/products" variant="ghost">
+            All nine series
+          </ButtonLink>
         </div>
       </Section>
 
