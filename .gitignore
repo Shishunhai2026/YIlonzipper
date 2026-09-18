@@ -39,3 +39,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Runtime data — contains customer PII (name, company, email, phone).
+# Must never be committed to repository history.
+/var/
+
+# Local project archives. A zip of this working tree carries both a full copy
+# of .git and whatever sits in var/, so committing one would leak enquiry data
+# into history — and at ~200MB it would block the deploy anyway.
+*.zip

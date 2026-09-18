@@ -1,0 +1,32 @@
+{
+  "airtight-zipper": {
+    "src": "/images/hero/airtight-zipper.webp",
+    "width": 1158,
+    "height": 456,
+    "bytes": 117114
+  },
+  "dry-suit-zipper": {
+    "src": "/images/hero/dry-suit-zipper.webp",
+    "width": 1158,
+    "height": 459,
+    "bytes": 86950
+  },
+  "inflatable-boat-zipper": {
+    "src": "/images/hero/inflatable-boat-zipper.webp",
+    "width": 1164,
+    "height": 452,
+    "bytes": 123560
+  },
+  "tpu-airtight-zipper": {
+    "src": "/images/hero/tpu-airtight-zipper.webp",
+    "width": 1170,
+    "height": 459,
+    "bytes": 123044
+  },
+  "waterproof-zipper": {
+    "src": "/images/hero/waterproof-zipper.webp",
+    "width": 1164,
+    "height": 453,
+    "bytes": 107386
+  }
+}
