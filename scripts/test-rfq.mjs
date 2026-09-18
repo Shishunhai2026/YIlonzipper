@@ -97,7 +97,7 @@ const VALID = {
   email: 'Anna@Nordsee-Diving.example',
   country: 'Germany',
   phone: '+49 40 123456',
-  product: '#10 Resin Airtight Zipper',
+  product: '#10 Plastic Airtight Zipper',
   application: 'Drysuits & Underwater Operations',
   quantity: '5,000 pcs per year',
   requirements:

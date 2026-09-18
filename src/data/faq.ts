@@ -34,7 +34,7 @@ export const faqs: FaqItem[] = [
     id: 'which-size-5-8-10',
     question: 'How do I choose between #5, #8 and #10 airtight waterproof zippers?',
     answer:
-      '#5 suits lightweight and flexible products, #8 suits medium-to-high strength waterproof equipment, and #10 suits heavy-duty, pressure-resistant and industrial sealing projects. The resin, nylon woven, self-healing and circular ranges address military equipment, waterproof equipment, sealed bags and luggage, and protective suits. When selecting, supply the use case, opening length, tape width, host material, water or air pressure, opening frequency and target waterproof rating.',
+      '#5 suits lightweight and flexible products, #8 suits medium-to-high strength waterproof equipment, and #10 suits heavy-duty, pressure-resistant and industrial sealing projects. The plastic, nylon woven, self-healing and circular ranges address military equipment, waterproof equipment, sealed bags and luggage, and protective suits. When selecting, supply the use case, opening length, tape width, host material, water or air pressure, opening frequency and target waterproof rating.',
     group: 'Selection',
     productIds: ['1', '2', '5', '6'],
   },
@@ -49,7 +49,7 @@ export const faqs: FaqItem[] = [
     id: 'material-selection',
     question: 'How do I choose between TPU, PEVA, silicone rubber and nylon woven materials?',
     answer:
-      'TPU suits most airtight waterproof projects. PEVA suits lightweight and economy waterproof products. Silicone rubber suits wide temperature ranges and high-end sealing. Nylon woven with TPU suits garments and flexible fabrics. Resin teeth with a sealing layer suit openings that need higher strength.',
+      'TPU suits most airtight waterproof projects. PEVA suits lightweight and economy waterproof products. Silicone rubber suits wide temperature ranges and high-end sealing. Nylon woven with TPU suits garments and flexible fabrics. Plastic teeth with a sealing layer suit openings that need higher strength.',
     group: 'Selection',
     productIds: ['1', '2', '4', '5', '9'],
   },
@@ -78,7 +78,7 @@ export const faqs: FaqItem[] = [
     id: 'product-range',
     question: 'What product ranges and sub-models does YILON currently offer?',
     answer:
-      'YILON currently covers 9 main product ranges: #10 resin airtight zipper, #5 resin airtight zipper, self-healing airtight zipper, PEVA airtight zipper, #5 nylon woven waterproof zipper, #8 nylon woven waterproof zipper, high-speed roller door zipper, circular airtight zipper and drysuit envelope. The #10 resin, #5 resin, self-healing, high-speed roller door and circular ranges are published with 3,000+ cycle durability.',
+      'YILON currently covers 9 main product ranges: #10 plastic airtight zipper, #5 plastic airtight zipper, self-healing airtight zipper, PEVA airtight zipper, #5 nylon woven waterproof zipper, #8 nylon woven waterproof zipper, high-speed roller door zipper, circular airtight zipper and drysuit envelope. The #10 plastic, #5 plastic, self-healing, high-speed roller door and circular ranges are published with 3,000+ cycle durability.',
     group: 'Product',
     productIds: ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
   },

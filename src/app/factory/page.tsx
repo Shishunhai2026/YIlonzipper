@@ -247,7 +247,7 @@ export default function FactoryPage() {
                     ))}
                   </ul>
                   <p className="mt-6 border-t border-navy-200 pt-5 text-sm leading-relaxed text-steel-700">
-                    Airtight TPU builds are published with a 60 kPa sealing strength (#10 resin and
+                    Airtight TPU builds are published with a 60 kPa sealing strength (#10 plastic and
                     circular) and a 3,000+ open/close cycle figure.
                   </p>
                 </div>

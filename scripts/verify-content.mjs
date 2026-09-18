@@ -61,11 +61,27 @@ check(
 );
 
 // ---- 2. Product names must match exactly ----
+/**
+ * Client-chosen naming, where it differs from the manufacturer's library.
+ *
+ * The library names the #5 and #10 series "Resin"; the client publishes them as
+ * "Plastic", the term English-speaking buyers search for. This is a deliberate
+ * naming decision, not drift — so it is recorded here explicitly rather than
+ * silently accepted. Every product must still carry a name in the source; this
+ * only changes which name is expected. Unlisted products are still compared
+ * against the library verbatim.
+ */
+const NAME_OVERRIDES = {
+  1: '#10 Plastic Airtight Zipper',
+  2: '#5 Plastic Airtight Zipper',
+};
+
 let namesChecked = 0;
 const nameMismatch = [];
 for (const [id, product] of Object.entries(source)) {
   namesChecked++;
-  if (!blob.includes(product.name_en)) nameMismatch.push(`product ${id}: ${product.name_en}`);
+  const expected = NAME_OVERRIDES[id] ?? product.name_en;
+  if (!blob.includes(expected)) nameMismatch.push(`product ${id}: ${expected}`);
 }
 check(`all ${namesChecked} product names present`, nameMismatch.length === 0, nameMismatch.join(' | '));
 

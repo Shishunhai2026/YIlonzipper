@@ -70,7 +70,7 @@ const REFERENCE_FIGURES = [
     label: 'Sealing pressure',
     value: '30 kPa',
     figure: products.filter((product) => product.specs.sealStrength === '30 kPa'),
-    context: 'Published reference on the compact #5 resin and self-healing builds.',
+    context: 'Published reference on the compact #5 plastic and self-healing builds.',
   },
   {
     label: 'Durability',

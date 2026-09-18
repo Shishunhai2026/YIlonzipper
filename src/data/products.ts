@@ -120,10 +120,10 @@ const FEATURES = [
 export const products: Product[] = [
   {
     id: '1',
-    slug: '10-resin-airtight-zipper',
-    name: '#10 Resin Airtight Zipper',
-    shortName: '#10 Resin',
-    categorySlug: 'resin-airtight-zippers',
+    slug: '10-plastic-airtight-zipper',
+    name: '#10 Plastic Airtight Zipper',
+    shortName: '#10 Plastic',
+    categorySlug: 'plastic-airtight-zippers',
     specs: {
       size: '#10',
       chainWidth: '10 mm',
@@ -140,9 +140,9 @@ export const products: Product[] = [
     },
     tags: ['#10', 'TPU', 'IPX8'],
     summary:
-      'Heavy-duty #10 resin airtight zipper with a TPU sealing layer, rated IPX8 and tested to 60 kPa sealing pressure.',
+      'Heavy-duty #10 plastic airtight zipper with a TPU sealing layer, rated IPX8 and tested to 60 kPa sealing pressure.',
     description:
-      'High-strength resin structure with a TPU sealing layer for military equipment, waterproof equipment, sealed bags and luggage, and protective suits. Strong teeth, stable sealing, and fully customizable sizing.',
+      'High-strength plastic structure with a TPU sealing layer for military equipment, waterproof equipment, sealed bags and luggage, and protective suits. Strong teeth, stable sealing, and fully customizable sizing.',
     applications: [
       'Military equipment',
       'Waterproof equipment',
@@ -179,10 +179,10 @@ export const products: Product[] = [
   },
   {
     id: '2',
-    slug: '5-resin-airtight-zipper',
-    name: '#5 Resin Airtight Zipper',
-    shortName: '#5 Resin',
-    categorySlug: 'resin-airtight-zippers',
+    slug: '5-plastic-airtight-zipper',
+    name: '#5 Plastic Airtight Zipper',
+    shortName: '#5 Plastic',
+    categorySlug: 'plastic-airtight-zippers',
     specs: {
       size: '#5',
       chainWidth: '5 mm',
@@ -199,9 +199,9 @@ export const products: Product[] = [
     },
     tags: ['#5', 'TPU', 'IPX8'],
     summary:
-      'Compact #5 resin airtight zipper — IPX8 sealed, 30 kPa tested, for lighter waterproof and airtight assemblies.',
+      'Compact #5 plastic airtight zipper — IPX8 sealed, 30 kPa tested, for lighter waterproof and airtight assemblies.',
     description:
-      'Compact resin airtight zipper with excellent sealing for military equipment, waterproof equipment, sealed bags and luggage, and protective suits that require lightweight airtight waterproof sealing.',
+      'Compact plastic airtight zipper with excellent sealing for military equipment, waterproof equipment, sealed bags and luggage, and protective suits that require lightweight airtight waterproof sealing.',
     applications: [
       'Military equipment',
       'Waterproof equipment',
@@ -635,14 +635,14 @@ const VARIANT_NAMES: Record<string, string[]> = {
 
 export const categories: Category[] = [
   {
-    slug: 'resin-airtight-zippers',
-    name: 'Resin Airtight Zippers',
-    shortName: 'Resin',
-    tagline: 'IPX8 resin airtight zippers tested to 60 kPa',
+    slug: 'plastic-airtight-zippers',
+    name: 'Plastic Airtight Zippers',
+    shortName: 'Plastic',
+    tagline: 'IPX8 plastic airtight zippers tested to 60 kPa',
     description:
-      'High-strength resin teeth with a TPU sealing layer. The #10 build reaches 1,100 N/5 cm tensile strength and 60 kPa sealing pressure; the #5 build covers lighter assemblies. Both are rated IPX8 and rated for 3,000+ open/close cycles.',
+      'High-strength plastic teeth with a TPU sealing layer. The #10 build reaches 1,100 N/5 cm tensile strength and 60 kPa sealing pressure; the #5 build covers lighter assemblies. Both are rated IPX8 and rated for 3,000+ open/close cycles.',
     productIds: ['1', '2'],
-    seoKeyword: 'resin airtight zipper',
+    seoKeyword: 'plastic airtight zipper',
   },
   {
     slug: 'functional-airtight-zippers',

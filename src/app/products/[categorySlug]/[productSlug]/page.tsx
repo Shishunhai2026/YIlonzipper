@@ -117,12 +117,12 @@ const DEFAULT_GUIDES = [
 ];
 
 const GUIDES_BY_PRODUCT: Record<string, string[]> = {
-  '10-resin-airtight-zipper': [
+  '10-plastic-airtight-zipper': [
     'zipper-selection-guide',
     'ipx-waterproof-rating-guide',
     'custom-zipper-procurement-checklist',
   ],
-  '5-resin-airtight-zipper': [
+  '5-plastic-airtight-zipper': [
     'zipper-selection-guide',
     'ipx-waterproof-rating-guide',
     'custom-zipper-procurement-checklist',

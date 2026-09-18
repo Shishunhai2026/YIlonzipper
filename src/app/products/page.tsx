@@ -26,7 +26,7 @@ import { openGraphFor } from '@/lib/seo';
 
 const TITLE = 'Airtight & Waterproof Zipper Series';
 const DESCRIPTION =
-  'Compare nine airtight and waterproof zipper series — resin, nylon woven, PEVA, self-healing, circular and roller door — with published IPX and seal data.';
+  'Compare nine airtight and waterproof zipper series — plastic, nylon woven, PEVA, self-healing, circular and roller door — with published IPX and seal data.';
 
 export const metadata: Metadata = {
   title: TITLE,

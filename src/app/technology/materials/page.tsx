@@ -51,11 +51,11 @@ const MATERIALS: MaterialRow[] = [
   {
     material: 'TPU',
     where:
-      'The one-piece body of the #10 resin, #5 resin, self-healing and circular airtight zippers. It is also published as the coating over polyester tape on the #5 and #8 nylon woven builds, and as one half of the TPU/PVC material of the high-speed roller door zipper.',
+      'The one-piece body of the #10 plastic, #5 plastic, self-healing and circular airtight zippers. It is also published as the coating over polyester tape on the #5 and #8 nylon woven builds, and as one half of the TPU/PVC material of the high-speed roller door zipper.',
     properties: [
       'Heat resistance -30°C ~ 70°C',
-      'Seal strength 60 kPa (#10 resin, circular) and 30 kPa (#5 resin, self-healing)',
-      'Tensile strength 1,100 N/5 cm (#10 resin, circular), 800 N/5 cm (#5 resin), 160 N/5 cm (self-healing)',
+      'Seal strength 60 kPa (#10 plastic, circular) and 30 kPa (#5 plastic, self-healing)',
+      'Tensile strength 1,100 N/5 cm (#10 plastic, circular), 800 N/5 cm (#5 plastic), 160 N/5 cm (self-healing)',
       'Durability 3,000+ cycles',
       'Weather resistance: Good',
       'Oil resistance: Good',

@@ -61,7 +61,7 @@ const RATED_LEVELS = [
     rating: 'IPX8',
     meaning: 'Continuous immersion',
     guidance:
-      'Defined by agreement rather than by a fixed depth, so the test depth and duration have to be stated for the project. This is the level the resin, self-healing, circular and drysuit builds are published at.',
+      'Defined by agreement rather than by a fixed depth, so the test depth and duration have to be stated for the project. This is the level the plastic, self-healing, circular and drysuit builds are published at.',
   },
   {
     rating: 'IPX7',

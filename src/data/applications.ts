@@ -26,11 +26,11 @@ export const applications: Application[] = [
     name: 'Military & Defence Equipment',
     headline: 'Airtight sealing for military and defence equipment',
     intro:
-      'Military equipment is the manufacturer’s leading published application for its airtight range. These assemblies are opened and closed repeatedly and have to hold their seal under pressure, which is why the resin and circular builds are rated IPX8 and tested to 60 kPa.',
+      'Military equipment is the manufacturer’s leading published application for its airtight range. These assemblies are opened and closed repeatedly and have to hold their seal under pressure, which is why the plastic and circular builds are rated IPX8 and tested to 60 kPa.',
     requirements: [
       'Repeated open/close — the published durability figure is 3,000+ cycles',
-      'Pressure sealing — reference test at 60 kPa on resin and circular builds',
-      'Continuous immersion tolerance — IPX8 on the resin, self-healing and circular products',
+      'Pressure sealing — reference test at 60 kPa on plastic and circular builds',
+      'Continuous immersion tolerance — IPX8 on the plastic, self-healing and circular products',
       'Sealing pressure confirmed against your own project test conditions',
     ],
     productIds: ['1', '2', '3', '5', '6', '8'],
@@ -44,7 +44,7 @@ export const applications: Application[] = [
       'The manufacturer publishes waterproof equipment across both its airtight and watertight ranges. Choosing between them comes down to whether the assembly has to resist air and pressure loss, or only water ingress.',
     requirements: [
       'Watertight only — IPX6 nylon woven builds (#5 and #8)',
-      'Airtight and pressure-sealed — IPX8 resin and circular builds',
+      'Airtight and pressure-sealed — IPX8 plastic and circular builds',
       'Flexible, lightweight substrates — nylon woven with TPU coating',
       'HF welding, sewing/tape or bonding, depending on the host material',
     ],
@@ -56,9 +56,9 @@ export const applications: Application[] = [
     name: 'Sealed Bags & Luggage',
     headline: 'Airtight zippers for sealed bags and luggage',
     intro:
-      'Sealed bags and luggage appear as a published application for most of the range, from the heavy #10 resin build down to the lightweight PEVA zipper used on everyday dry bags and backpacks.',
+      'Sealed bags and luggage appear as a published application for most of the range, from the heavy #10 plastic build down to the lightweight PEVA zipper used on everyday dry bags and backpacks.',
     requirements: [
-      'Airtight sealing for dry bags and sealed luggage — IPX8 resin build',
+      'Airtight sealing for dry bags and sealed luggage — IPX8 plastic build',
       'Cost-sensitive everyday dry bags — PEVA, IPX7',
       'Expanded PVC/TPU panels — HF welding is the published process',
       'Length produced to order, fully customizable',
@@ -74,8 +74,8 @@ export const applications: Application[] = [
       'Protective suits are a published application across the airtight range, where the opening has to stay sealed while the wearer moves and flexes.',
     requirements: [
       'Flexible fit without losing the seal — nylon woven TPU builds',
-      'Higher sealing pressure — resin or circular IPX8 builds',
-      'Oil resistance — published as “Good” on the resin and circular products',
+      'Higher sealing pressure — plastic or circular IPX8 builds',
+      'Oil resistance — published as “Good” on the plastic and circular products',
       'Sewn-then-taped construction where the host fabric requires it',
     ],
     productIds: ['1', '2', '3', '5', '6', '8'],
@@ -167,7 +167,7 @@ export const applications: Application[] = [
     intro:
       'An inflatable closure is a pressure seal first: it is folded, packed and inflated repeatedly, and it has to hold air as well as keep water out. That places it in the airtight range rather than the watertight one, and it is the use the manufacturer publishes the self-healing build against.',
     requirements: [
-      'Air retention — airtight builds are published with a 60 kPa sealing pressure test (#10 resin and circular)',
+      'Air retention — airtight builds are published with a 60 kPa sealing pressure test (#10 plastic and circular)',
       'Derail recovery — the self-healing build resets automatically, which matters on an inflatable pressurised under load',
       'Repeated folding and packing — the published durability figure is 3,000+ cycles',
       'Closed-loop openings — the circular airtight zipper seals through 360 degrees where the port is not a straight line',

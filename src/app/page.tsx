@@ -180,7 +180,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="Product range"
             title="Nine airtight and waterproof zipper series"
-            intro="From heavy-duty #10 resin builds for military and pressure-sealed assemblies, through flexible TPU-coated nylon woven zippers, to a silicone rubber drysuit envelope rated for continuous immersion."
+            intro="From heavy-duty #10 plastic builds for military and pressure-sealed assemblies, through flexible TPU-coated nylon woven zippers, to a silicone rubber drysuit envelope rated for continuous immersion."
           />
           <ButtonLink href="/products" variant="ghost">
             All products

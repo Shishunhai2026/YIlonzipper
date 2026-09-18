@@ -101,6 +101,46 @@ const nextConfig: NextConfig = {
       { source: '/product-detail.html', destination: '/products', permanent: true },
       { source: '/guides', destination: '/technology', permanent: true },
       { source: '/guides/:slug', destination: '/technology/:slug', permanent: true },
+
+      // The #5 and #10 series were renamed from "Resin" to "Plastic", which
+      // changed the category slug, both product slugs, and therefore every URL
+      // beneath them.
+      //
+      // Order is load-bearing: the two exact product rules must come before the
+      // `:product` wildcard, otherwise each old product URL matches the wildcard
+      // first and then needs a second hop to fix the product slug as well.
+      {
+        source: '/products/resin-airtight-zippers/10-resin-airtight-zipper',
+        destination: '/products/plastic-airtight-zippers/10-plastic-airtight-zipper',
+        permanent: true,
+      },
+      {
+        source: '/products/resin-airtight-zippers/5-resin-airtight-zipper',
+        destination: '/products/plastic-airtight-zippers/5-plastic-airtight-zipper',
+        permanent: true,
+      },
+      // Any other old product URL under the old category keeps its product slug.
+      {
+        source: '/products/resin-airtight-zippers/:product',
+        destination: '/products/plastic-airtight-zippers/:product',
+        permanent: true,
+      },
+      {
+        source: '/products/resin-airtight-zippers',
+        destination: '/products/plastic-airtight-zippers',
+        permanent: true,
+      },
+      // Reachable if someone pairs the new category with an old product slug.
+      {
+        source: '/products/plastic-airtight-zippers/10-resin-airtight-zipper',
+        destination: '/products/plastic-airtight-zippers/10-plastic-airtight-zipper',
+        permanent: true,
+      },
+      {
+        source: '/products/plastic-airtight-zippers/5-resin-airtight-zipper',
+        destination: '/products/plastic-airtight-zippers/5-plastic-airtight-zipper',
+        permanent: true,
+      },
     ];
   },
 };

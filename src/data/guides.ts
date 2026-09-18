@@ -267,7 +267,7 @@ export const guides: Guide[] = [
         type: 'table',
         head: ['Process', 'Used on', 'Notes'],
         rows: [
-          ['HF welding, sewing/tape, bonding', '#10 resin, #5 resin, circular airtight zipper', 'Full combination available on the resin and circular ranges'],
+          ['HF welding, sewing/tape, bonding', '#10 plastic, #5 plastic, circular airtight zipper', 'Full combination available on the plastic and circular ranges'],
           ['HF welding, tape, bonding', 'Self-healing airtight zipper', 'Sewing is not listed for this product'],
           ['HF welding, sewing', 'PEVA airtight zipper, high-speed roller door zipper', 'Simpler two-process route'],
           ['HF welding, bonding', 'Drysuit envelope zipper', 'Suited to silicone rubber'],
@@ -285,7 +285,7 @@ export const guides: Guide[] = [
       {
         type: 'callout',
         title: 'Sealing performance',
-        text: 'Airtight TPU builds are published with 60 kPa sealing strength (#10 resin and circular) and 3,000+ open/close cycles.',
+        text: 'Airtight TPU builds are published with 60 kPa sealing strength (#10 plastic and circular) and 3,000+ open/close cycles.',
       },
     ],
   },
@@ -308,7 +308,7 @@ export const guides: Guide[] = [
       {
         type: 'ul',
         items: [
-          'Sealing strength: airtight builds are published with a 60 kPa sealing pressure test (#10 resin, circular).',
+          'Sealing strength: airtight builds are published with a 60 kPa sealing pressure test (#10 plastic, circular).',
           'Derail recovery: the self-healing airtight zipper resets automatically after derailing, which matters on inflatables and rescue equipment where failure is not an option.',
           'Closed-loop openings: where the port is not a straight line, the circular airtight zipper gives 360-degree sealing.',
           'Assembly: HF welding suits the TPU and PVC panels used on inflatables.',
@@ -319,9 +319,9 @@ export const guides: Guide[] = [
         type: 'table',
         head: ['Parameter', 'Published value'],
         rows: [
-          ['Seal strength (#10 resin, circular)', '60 kPa'],
-          ['Seal strength (#5 resin, self-healing)', '30 kPa'],
-          ['Tensile strength (#10 resin, circular)', '1100 N/5 cm'],
+          ['Seal strength (#10 plastic, circular)', '60 kPa'],
+          ['Seal strength (#5 plastic, self-healing)', '30 kPa'],
+          ['Tensile strength (#10 plastic, circular)', '1100 N/5 cm'],
           ['Heat resistance (TPU)', '-30°C ~ 70°C'],
           ['Durability', '3000+ cycles'],
         ],
