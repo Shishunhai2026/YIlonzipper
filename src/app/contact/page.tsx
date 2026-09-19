@@ -9,7 +9,7 @@ import { openGraphFor } from '@/lib/seo';
 
 const TITLE = 'Contact YILON — Airtight & Waterproof Zippers';
 const DESCRIPTION =
-  'Contact YILON about airtight and waterproof zipper enquiries. Email shishunhai2026@gmail.com, call +86 18973134733, or send your specification via the form.';
+  'Contact YILON about airtight and waterproof zipper enquiries. Email sales@yilonzipper.com, call +86 18973134733, or send your specification via the form.';
 
 export const metadata: Metadata = {
   title: TITLE,

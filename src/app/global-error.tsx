@@ -49,8 +49,8 @@ export default function GlobalError({
           </h1>
           <p style={{ marginTop: '1rem', lineHeight: 1.6, color: '#56606b' }}>
             The page failed to load. Please try again — if it keeps happening, email us at{' '}
-            <a href="mailto:shishunhai2026@gmail.com" style={{ color: '#264b66' }}>
-              shishunhai2026@gmail.com
+            <a href="mailto:sales@yilonzipper.com" style={{ color: '#264b66' }}>
+              sales@yilonzipper.com
             </a>{' '}
             and we will send what you need directly.
           </p>

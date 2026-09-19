@@ -34,7 +34,7 @@ export const company = {
       { display: '+86 18973134733', href: '+8618973134733' },
       { display: '+86 18073184270', href: '+8618073184270' },
     ],
-    email: 'shishunhai2026@gmail.com',
+    email: 'sales@yilonzipper.com',
   },
 
   // --- Published business metrics. Do not extrapolate or add new ones. ---
