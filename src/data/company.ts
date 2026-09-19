@@ -94,5 +94,15 @@ export const company = {
   },
 } as const;
 
+/**
+ * Base URL for every canonical, sitemap entry and schema @id on the site.
+ *
+ * The fallback is the host the site actually serves, so a deployment that is
+ * missing NEXT_PUBLIC_SITE_URL stays correct instead of silently advertising a
+ * different one. It previously named `www.yilon-zipper.com` — a separate host
+ * that this site has never been served from — which would have pointed every
+ * canonical and the whole sitemap at the wrong domain, with nothing failing
+ * loudly enough to notice.
+ */
 export const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') ?? 'https://www.yilon-zipper.com';
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') ?? 'https://yilonzipper.com';
