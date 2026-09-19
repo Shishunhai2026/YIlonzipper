@@ -7,7 +7,12 @@ export const metadata: Metadata = {
   title: 'Page not found',
   description:
     'The page you were looking for does not exist. Browse the YILON airtight and waterproof zipper range, or contact us and we will point you to it.',
-  robots: { index: false, follow: true },
+  /**
+   * No `robots` here: Next already renders <meta name="robots" content="noindex">
+   * for the 404 route (see `NonIndex` in next/dist/server/app-render). Declaring
+   * it again emitted a second, near-identical tag. `noindex` on its own still
+   * lets a crawler follow the suggestion links below.
+   */
 };
 
 /** Popular destinations, so a 404 still routes visitors toward a product. */

@@ -26,7 +26,13 @@ export const metadata: Metadata = {
   creator: company.legalName,
   publisher: company.legalName,
   formatDetection: { telephone: false, address: false, email: false },
-  alternates: { canonical: '/' },
+  /**
+   * No `alternates.canonical` here, deliberately. A default would be inherited
+   * by every route that does not declare its own — including `not-found.tsx`,
+   * which was left claiming to be the homepage at `/`. Every page in `src/app`
+   * sets its own canonical, and a page that forgets one is better off emitting
+   * nothing (a missing canonical self-canonicalises) than claiming to be `/`.
+   */
   /**
    * Defaults only. Every page supplies its own `openGraph` via openGraphFor()
    * in src/lib/seo.ts, because Next REPLACES this object rather than merging it
@@ -60,11 +66,18 @@ export const metadata: Metadata = {
       'IPX6–IPX8 airtight and waterproof zippers, 60 kPa sealing strength, 3,000+ cycles. Custom sizes, materials and lengths from 5 cm to 100 m.',
     images: ['/og-image.jpg'],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
-  },
+  /**
+   * No `robots` here either, for the same reason as `alternates` above. Next
+   * renders <meta name="robots" content="noindex"> for the 404 route by itself
+   * (see `NonIndex` in next/dist/server/app-render), and a default declared
+   * here is inherited rather than overridden — so it landed on the 404 page as
+   * a second tag reading "index, follow", directly contradicting the first.
+   *
+   * Nothing is lost by omitting it: index/follow, max-image-preview:large and
+   * max-snippet:-1 are all crawler defaults, so the absence of the tag and the
+   * tag itself mean the same thing. Pages that want to state it can, as
+   * /request-a-quote does.
+   */
   category: 'Manufacturing',
 };
 
